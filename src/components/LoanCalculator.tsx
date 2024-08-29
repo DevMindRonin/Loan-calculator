@@ -124,7 +124,10 @@ const LoanCalculator: React.FC = () => {
           <button type="submit" className="btn btn-primary fw-bold">POKRAČOVAT</button>
         </div>
       </form>
-      <p className="small text-muted mt-3 text-center">Úroková sazba od 6.90%, RPSN od 7.11%, pojištění {state.insuranceCost}.</p>
+      <p className="small text-muted mt-3 text-center">
+        Úroková sazba od 6.90%, RPSN od 7.11%, pojištění {state.insuranceCost}. Celkem zaplatíte 
+        <span className="fw-bold"> {state.monthlyPayment ? parseInt(state.monthlyPayment) * watch("months") : "0"} </span>Kč
+      </p>
     </div>
   )
 }
