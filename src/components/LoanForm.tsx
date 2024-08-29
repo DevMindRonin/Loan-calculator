@@ -1,6 +1,14 @@
 import React, { forwardRef } from "react"
 import { Controller } from "react-hook-form"
 
+interface SliderProps {
+  value: number
+  min: number
+  max: number
+  step: number
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+
 interface Props {
   control: any
   errors: any
@@ -8,14 +16,6 @@ interface Props {
   maxAmount: number
   minMonths: number
   maxMonths: number
-}
-
-interface SliderProps {
-  value: number
-  min: number
-  max: number
-  step: number
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const STEP_CUR = 1000
@@ -41,6 +41,11 @@ const Slider = forwardRef<HTMLInputElement, SliderProps>(({ value, min, max, ste
       value={value}
       onChange={onChange}
       step={step}
+      pattern="\d+" 
+      onInput={(e) => {
+        const value = e.currentTarget.value;
+        e.currentTarget.value = value.replace(/[^0-9]/g, "");
+      }}
     />
   </div>
 ))
