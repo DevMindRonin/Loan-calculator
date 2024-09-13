@@ -6,6 +6,8 @@ import "./LoanCalculator.css"
 import LoanForm from "./LoanForm"
 import LoanResults from "./LoanResults"
 
+const apiUrl = process.env.REACT_APP_API_URL
+
 interface FormValues {
   amount: number
   months: number
@@ -71,7 +73,7 @@ const LoanCalculator: React.FC = () => {
   
     dispatch({ type: "SET_LOADING", payload: true })
     try {
-      const response = await axios.post("https://loan-calculator-iw47.onrender.com/api/calculate", data)
+      const response = await axios.post(`${apiUrl}/calculate`, data)
       const monthlyPaymentValue = Math.round(response.data.monthlyPayment)
   
       const paymentDisplay = monthlyPaymentValue < 0 ? AVAILABILITY : `${monthlyPaymentValue} Kč`
