@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm:server\" \"npm:frontend\"",
-    "server": "cd src && node server.mjs",
+    "server": "cd backend && node server.mjs",
     "frontend": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

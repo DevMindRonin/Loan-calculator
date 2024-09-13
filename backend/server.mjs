@@ -1,5 +1,5 @@
 import express from "express"
-import loanCalculatorRoute from "./routes/loanCalculator.mjs"
+import loanCalculatorRoute from "../backend/routes/loanCalculator.mjs"
 import bodyParser from "body-parser"
 import cors from "cors"
 
