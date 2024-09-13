@@ -73,7 +73,7 @@ const LoanCalculator: React.FC = () => {
   
     dispatch({ type: "SET_LOADING", payload: true })
     try {
-      const response = await axios.post(`${apiUrl}/calculate`, data)
+      const response = await axios.post(`${apiUrl}calculate`, data)
       const monthlyPaymentValue = Math.round(response.data.monthlyPayment)
   
       const paymentDisplay = monthlyPaymentValue < 0 ? AVAILABILITY : `${monthlyPaymentValue} Kč`
